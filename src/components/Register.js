@@ -10,7 +10,6 @@ import { useAuth } from "./auth";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-// const REGISTER_URL = "/register";
 
 const Register = () => {
   const userRef = useRef();
@@ -19,7 +18,7 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const redirectPath = location.state?.path || "/";
+  const redirectPath = location.state.path || "/";
 
   const [user, setUser] = useState("");
   const [validName, setValidName] = useState(false);
@@ -60,18 +59,6 @@ const Register = () => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    e.preventDefault();
-    // if button enabled with JS hack
-    const v1 = USER_REGEX.test(user);
-    const v2 = PWD_REGEX.test(pwd);
-    if (!v1 || !v2) {
-      setErrMsg("Invalid Entry");
-      return;
-    }
-  };
-
   const handleLogin = () => {
     auth.login(user);
     navigate(redirectPath, { replace: true });
@@ -96,7 +83,7 @@ const Register = () => {
             {errMsg}
           </p>
           <h1>Register</h1>
-          <form onSubmit={handleSubmit}>
+          <form>
             <label htmlFor='username'>
               Username:
               <FontAwesomeIcon
@@ -208,9 +195,6 @@ const Register = () => {
             <button
               onClick={() => handleLogin()}
               disabled={!validName || !validPwd || !validMatch ? true : false}
-              // className={
-              //   !validName || !validMatch || !validPwd ? "" : "button-enabled"
-              // }
             >
               Sign Up
             </button>
@@ -219,7 +203,6 @@ const Register = () => {
             Already registered?
             <br />
             <span className='line'>
-              {/*put router link here*/}
               <a href='#'>Sign In</a>
             </span>
           </p>

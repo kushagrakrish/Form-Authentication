@@ -1,15 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../auth";
-import { Navigate, useLocation } from "react-router-dom";
 
 const FetchData = () => {
   const [post, setPost] = useState({});
   const [id, setId] = useState(1);
   const [idFromButtonClick, setIdFromButtonClick] = useState(1);
   const [err, setErr] = useState("");
-  // const auth = useAuth();
-  // const location = useLocation();
 
   useEffect(() => {
     axios
@@ -20,7 +16,7 @@ const FetchData = () => {
       })
       .catch((err) => {
         console.log(err);
-        setErr("Not available");
+        setErr(true);
       });
   }, [idFromButtonClick]);
 
@@ -35,7 +31,7 @@ const FetchData = () => {
         <button onClick={() => handleClick()}>Fetch Data</button>
       </div>
       <h1>{post.title}</h1>
-      <h1>{setErr}</h1>
+      {err && <h2>Something went Wrong</h2>}
     </div>
   );
 };
