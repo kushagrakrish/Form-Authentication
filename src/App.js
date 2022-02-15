@@ -2,7 +2,6 @@ import React from "react";
 import { AuthProvider } from "./components/auth";
 import Login from "./components/Login";
 import { Routes, Route, Link } from "react-router-dom";
-// import About from "./components/About";
 import Admin from "./components/Admin";
 import ErrorPage from "./components/ErrorPage";
 import FeaturedProducts from "./components/FeaturedProducts";
@@ -17,7 +16,6 @@ import UserDetails from "./components/UserDetails";
 import RequireAuth from "./components/RequireAuth";
 import FetchData from "./components/api/FetchData";
 import Register from "./components/Register";
-import Jokes from "./components/Jokes";
 const LazyAbout = React.lazy(() => import("./components/About"));
 
 function App() {
