@@ -18,7 +18,7 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const redirectPath = location.state.path || "/";
+  const redirectPath = location.state?.path || "/";
 
   const [user, setUser] = useState("");
   const [validName, setValidName] = useState(false);
@@ -33,7 +33,7 @@ const Register = () => {
   const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [success] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -54,7 +54,6 @@ const Register = () => {
     const match = pwd === matchPwd;
     setValidMatch(match);
   }, [pwd, matchPwd]);
-
   useEffect(() => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);

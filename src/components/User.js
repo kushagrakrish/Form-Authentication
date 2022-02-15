@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet, useSearchParams } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 
 const User = () => {
   const [searchParams, setSearchParams] = useSearchParams();
