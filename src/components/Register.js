@@ -68,9 +68,7 @@ const Register = () => {
       {success ? (
         <section>
           <h1>Succes!</h1>
-          <p>
-            <a>Sign In</a>
-          </p>
+          <p>Sign In</p>
         </section>
       ) : (
         <section>
@@ -201,9 +199,7 @@ const Register = () => {
           <p>
             Already registered?
             <br />
-            <span className='line'>
-              <a>Sign In</a>
-            </span>
+            <span className='line'>Sign In</span>
           </p>
         </section>
       )}
